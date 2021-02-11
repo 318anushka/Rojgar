@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom'
 import Dictaphone from './Voice'
 
 
-class Dashboard extends Component {
+class DashboardHindi extends Component {
   state = {
     searchTerm: '',
     location:'',
@@ -37,14 +37,13 @@ class Dashboard extends Component {
 
   render() {
     const { jobs, auth, currentLocation, jobType, minSalary } = this.props;
-
     if(!auth.uid) return <Redirect to='/signin'></Redirect>
     return (
       <div className=" dashboard background container">
         <div className='mrgtb-20'>
           <div className='row'>
               <div className='search'>
-                <input type="text" placeholder="Looking for a job..." onChange={this.handleChange}></input>
+                <input type="text" placeholder="कुछ टाइप करें ..." onChange={this.handleChange}></input>
               </div>
               <Dictaphone handler = {this.handler}></Dictaphone>
               </div>
@@ -64,7 +63,7 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
- // console.log("state" , state)
+  //console.log("state" , state)
   return {
     jobs: state.firestore.ordered.jobs,
     auth: state.firebase.auth,
@@ -83,4 +82,4 @@ export default compose(
     { collection: 'users' }
     
   ])
-)(Dashboard)
+)(DashboardHindi)

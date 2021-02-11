@@ -11,7 +11,6 @@ const Dictaphone = (props) => {
   function update() {
     // props.x is visible here
     console.log(transcript)
-    props.handler(transcript)
   }
 
   return (

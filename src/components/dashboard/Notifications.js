@@ -13,12 +13,15 @@ class Notifications extends Component {
   // console.log("array :", array)
   render(){
     const { jobs, currentLocation, jobType, minSalary } = this.props;
-    console.log("Noti prop" ,this.props)
+    const url = window.location.pathname;
   return (
     <div className="section">
       <div className="card z-depth-0">
         <div className="card-content">
-          <span className="card-title">Notifications</span>
+          <span className="card-title">{ url.includes("hindi")       
+                    ? "नई सूचना "
+                    : "Notifications"
+            }</span>
           <ul className="online-users">
             {jobs && jobs.filter(val => {
               if(jobType == "" && minSalary == "" && currentLocation == ""){
@@ -32,7 +35,10 @@ class Notifications extends Component {
             }).map(item =>{
               return <Link to={'/job/' + item.id} key={item.id}>
               <li key={item.id}>
-                <span className="pink-text">{item.content}New Job Posted for: </span>
+                <span className="pink-text">{ url.includes("hindi")       
+                    ? "नई जॉब उपलब्ध: "
+                    : "New Job Posted For:"
+            }</span>
                 <span> {item.title}</span>
                 <div className="note-date grey-text">{moment(item.createdAt.toDate()).fromNow()}</div>
               </li></Link>
@@ -47,7 +53,7 @@ class Notifications extends Component {
 
 
 const mapStateToProps = (state) => {
-  console.log("state in noti:" , state)
+ // console.log("state in noti:" , state)
   return {
     currentLocation: state.firebase.profile.currentLocation,
     jobType: state.firebase.profile.jobType,

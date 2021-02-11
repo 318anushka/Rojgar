@@ -7,6 +7,7 @@ import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import CreateListing from './components/job/CreateListing';
 import Setup from './components/dashboard/Setup'
+import DashboardHindi from './components/dashboard/DashboardHindi';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path='/'component={Dashboard} />
+            <Route path='/hindi' component={DashboardHindi} />
             <Route path='/job/:id' component={JobDetails} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
