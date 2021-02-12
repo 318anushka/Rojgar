@@ -15,7 +15,7 @@ body {
 }
 
 .background {
-  background-color: #00b8d4;
+  background-color: #0288d1;
   min-height: 100%;
 }
 
@@ -69,6 +69,21 @@ body {
 .mrgr-5{
   margin-right: 5px;
 }
+.mrgt-5{
+  margin-top: 5px;
+}
+
+.mrgt-15{
+  margin-top: 15px;
+}
+
+.pdt-20{
+  padding-top: 20px;
+}
+
+.pd-0{
+  padding: 0px;
+}
 
 .heading{
 	margin: 1em 0 0.5em 0;
@@ -108,6 +123,11 @@ li:hover {
   max-height: 250px;
   width: auto;
   max-width: 250px;
+}
+
+.rights-img {
+  height: 50px;
+  width: 50px;
 }
 
 .next-img{

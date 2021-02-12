@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import JobSummary from "./JobSummary";
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 // const JobList = ({jobs, searchTerm}) => {
 //   state = {
@@ -43,25 +46,11 @@ class JobList extends Component {
       longitude: "",
       address: ""
     }
-    this.getCoordinates = this.getCoordinates.bind(this);
   }
-
-  getCoordinates(position){
-    console.log(position);
-    this.setState({
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude,
-      address: "Bangalore"
-    })
-   // console.log(this.state);
-  }
-  
 
   render() {
     const { jobs, searchTerm } = this.props;
-    // if(searchTerm.includes("near me") && navigator.geolocation){
-    //   navigator.geolocation.getCurrentPosition(this.getCoordinates)
-    // }
+    console.log("joblist", this.props)
     return (
     <div className="project-list section">
       { jobs && jobs.filter(val => {
@@ -69,6 +58,9 @@ class JobList extends Component {
           return val;
         }
         else if(searchTerm.toLowerCase().includes(val.title.toLowerCase())){
+          return val;
+        }
+        else if(this.props.searchTerm.toLowerCase().includes("near me") && val.location.toLowerCase().includes(this.props.currentLocation.toLowerCase())){
           return val;
         }
         else if(this.state.address!="" && val.location.toLowerCase().includes(this.state.address.toLowerCase())){
@@ -87,4 +79,16 @@ class JobList extends Component {
   }
 }
 
-export default JobList;
+const mapStateToProps = (state) => {
+   return {
+     currentLocation: state.firebase.profile.currentLocation,
+   }
+ }
+
+ export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'users' }
+    
+  ])
+)(JobList)

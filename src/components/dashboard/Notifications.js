@@ -25,6 +25,7 @@ class Notifications extends Component {
   render(){
     const { jobs, currentLocation, jobType, minSalary } = this.props;
     const url = window.location.pathname;
+    console.log("Noti", this.props)
   return (
     <div className="section">
       <div className="card z-depth-0">
@@ -42,7 +43,7 @@ class Notifications extends Component {
                 if(jobType == "" && minSalary == "" && currentLocation == ""){
                   return val;
                 }
-                else if((jobType.toLowerCase() == val.title.toLowerCase() && minSalary <= val.salary) &&
+                else if((jobType.toLowerCase().includes(val.title.toLowerCase()) && val.salary >= minSalary) &&
                 (currentLocation.toLowerCase() == val.location.toLowerCase() || currentLocation.toLowerCase() == "")
                 ){
                   return val;

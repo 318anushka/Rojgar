@@ -21,7 +21,7 @@ const JobDetails = (props) => {
             <p>{job.location}</p>
           </div>
           <div className="card-action grey lighten-4 grey-text">
-          <div>Description {job.description}</div>
+          <div>Description:  {job.description}</div>
           
           </div>
           <div className="card-action lighten-4 grey-text">

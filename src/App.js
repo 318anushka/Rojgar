@@ -9,6 +9,8 @@ import CreateListing from './components/job/CreateListing';
 import Setup from './components/dashboard/Setup'
 import DashboardHindi from './components/dashboard/DashboardHindi';
 import UserProfile from './components/dashboard/UserProfile'
+import Rights from './components/dashboard/Rights'
+
 
 class App extends Component {
   render() {
@@ -24,6 +26,7 @@ class App extends Component {
             <Route path='/signup' component={SignUp} />
             <Route path='/create' component={CreateListing} />
             <Route path='/setup' component={Setup}/>
+            <Route path='/rights' component={Rights} />
             <Route path='/profile' component={UserProfile} />
  
           </Switch>

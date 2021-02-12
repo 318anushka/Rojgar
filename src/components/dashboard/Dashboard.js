@@ -6,6 +6,9 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
 import Dictaphone from './Voice'
+import { Image } from 'semantic-ui-react'
+import rights from '../../images/rights.png';
+import { Link } from 'react-router-dom'
 
 
 class Dashboard extends Component {
@@ -48,16 +51,24 @@ class Dashboard extends Component {
                 <input type="text" value={this.state.searchTerm} placeholder="Looking for a job..." onChange={this.handleChange}></input>
               </div>
               <Dictaphone handler = {this.handler}></Dictaphone>
-              </div>
+              <div>
+            <div className='centre'>
+            <Image onClick={event =>  window.location.href='/rights'} src={rights} className='rights-img pdt-20' style={{cursor: 'pointer'}}
+            wrapped ui={true} />
+            <div className='mrgt-15'>Know Your Rights</div>
+            </div>
+          </div>
+          </div>
           </div>
         <div className="row">
-          <div className="col s12 m6">
+          <div className="col s12 m7">
             <JobList jobs={jobs} searchTerm={this.state.searchTerm}/>
           </div>
-          <div className="col s12 m5 offset-m1">
+          <div className="col s12 m4 offset-m1">
             <Notifications jobs={jobs} 
             />
           </div>
+          
         </div>
       </div>
     )
