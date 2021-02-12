@@ -1,6 +1,9 @@
 Easy to use, customised job search platform for blue collar workers.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Demo gif:
+![me](https://github.com/318anushka/Rojgar/blob/master/rojgar.gif)
+
 ## Available Scripts
 
 In the project directory, you can run:
