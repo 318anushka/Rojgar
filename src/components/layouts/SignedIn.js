@@ -16,7 +16,7 @@ const SignedIn = (props) => {
                     ? "लॉग आउट "
                     : "Log Out"
             }</a></li>
-        <li><NavLink to='/' className="btn btn-floating pink lighten-1">
+        <li><NavLink to='/profile' className="btn btn-floating pink lighten-1">
             { props.profile.initials }</NavLink></li>
       </ul>
     </div>

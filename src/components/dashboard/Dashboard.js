@@ -15,11 +15,12 @@ class Dashboard extends Component {
     type: ''
   }
 
-  // handler= (val) => {
-  //   this.setState({
-  //     searchTerm: val
-  //   })
-  // }
+  handler= (val) => {
+    this.setState({
+      searchTerm: val
+    })
+    console.log(this.state.searchTerm)
+  }
 
   // handleChange= (evt) => {
   //   const value = evt.target.value;
@@ -44,7 +45,7 @@ class Dashboard extends Component {
         <div className='mrgtb-20'>
           <div className='row'>
               <div className='search'>
-                <input type="text" placeholder="Looking for a job..." onChange={this.handleChange}></input>
+                <input type="text" value={this.state.searchTerm} placeholder="Looking for a job..." onChange={this.handleChange}></input>
               </div>
               <Dictaphone handler = {this.handler}></Dictaphone>
               </div>

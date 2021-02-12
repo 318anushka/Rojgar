@@ -59,9 +59,9 @@ class JobList extends Component {
 
   render() {
     const { jobs, searchTerm } = this.props;
-    if(searchTerm.includes("near me") && navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(this.getCoordinates)
-    }
+    // if(searchTerm.includes("near me") && navigator.geolocation){
+    //   navigator.geolocation.getCurrentPosition(this.getCoordinates)
+    // }
     return (
     <div className="project-list section">
       { jobs && jobs.filter(val => {

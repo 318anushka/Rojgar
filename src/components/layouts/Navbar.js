@@ -24,7 +24,8 @@ const Navbar = (props) => {
       </div>
       {showHindi ? <button className="btn pink lighten-1 z-depth-0" onClick={() => {window.location.pathname="/hindi"}}>हिंदी </button> : 
       <button className="btn pink lighten-1 z-depth-0" onClick={() => history.goBack()}>English </button>}
-      
+      {/* <button >Show Right Menu!</button> */}
+      {/* <Image src={} className='card-img'  ui={false} /> */}
     </nav>
   )
 }

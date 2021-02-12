@@ -41,13 +41,15 @@ class Setup extends Component {
   }
 
   getCoordinates(position){
-  //   this.setState({
-  //     latitude: position.coords.latitude,
-  //     longitude: position.coords.longitude
-  //   })
-  //   this.props.getCity(this.state.latitude, this.state.longitude);
-  //   return;
-  //  // console.log(this.state);
+    if(this.state.latitude == "" && this.state.longitude == ""){
+    this.setState({
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude
+    })
+    this.props.getCity(this.state.latitude, this.state.longitude);
+    return;
+  }
+   // console.log(this.state);
   }
 
   showError(error) {
