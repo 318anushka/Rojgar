@@ -93,6 +93,9 @@ class Setup extends Component {
     const { currentLocation, minSalary, jobType } = this.props;
    // console.log(currentLocation);
     return(
+      <div>
+        <div className='centre heading mrgtb-20'>Help Us Know Your Preferences</div>
+        <div className='centre content mrgtb-20'>Based on your choices, we will notify you of relevant job posted</div>
         <div className='row-wrap'>
             <Card>
             <Image src={location} className='card-img'  ui={false} />
@@ -130,10 +133,10 @@ class Setup extends Component {
             </Card>
 
             <Card>
-            <Image src={salary} className='card-img'  ui={false} />
+            <Image src={salary} className='centre card-img'  ui={false} />
             <Card.Content>
-            <Card.Header>Daniel</Card.Header>
-            <Card.Meta>Joined in 2016</Card.Meta>
+            <Card.Header className='centre'>MINIMUM SALARY</Card.Header>
+            <Card.Meta className='centre'>Drag the slider to set Minimum Salary requirement</Card.Meta>
             <Card.Description>
             <Slider
               defaultValue={30}
@@ -152,6 +155,7 @@ class Setup extends Component {
             <img  style={{cursor: 'pointer'}} className='next-img' src={next} 
             onClick={this.handleSubmit}/>
 
+        </div>
         </div>
         
     )

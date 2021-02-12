@@ -70,6 +70,26 @@ body {
   margin-right: 5px;
 }
 
+.heading{
+	margin: 1em 0 0.5em 0;
+	color: #343434;
+	font-weight: normal;
+	font-size: 30px;
+	line-height: 40px;
+	font-family: 'Orienta', sans-serif;
+}
+
+.content {
+	margin: 1em 0 0.5em 0;
+	font-weight: 400;
+	font-family: 'Titillium Web', sans-serif;
+	position: relative;
+	font-size: 18px;
+	line-height: 20px;
+	color: #000000;
+	font-family: 'Muli', sans-serif;
+}
+
 form{
   padding: 20px;
   margin-top: 60px;
