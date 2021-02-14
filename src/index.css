@@ -49,6 +49,11 @@ body {
   margin-bottom: 20px;
 }
 
+.mrgtb-10{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .mrg-5{
   margin: 5px;
 }
@@ -56,7 +61,10 @@ body {
   margin-left: 20px;;
   margin-right: 20px;
 }
-
+.mrglr-10{
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .mrglr-5{
   margin-left: 5px;
   margin-right: 5px;
@@ -76,7 +84,9 @@ body {
 .mrgt-15{
   margin-top: 15px;
 }
-
+.mrgt-145{
+  margin-top: 145px;
+}
 .pdt-20{
   padding-top: 20px;
 }
@@ -145,6 +155,14 @@ li:hover {
   text-align: center;
 
 }
+.left{
+  align-items:flex-start;
+  justify-content:left;
+  align-self:flex-start;
+  align-content:flex-start;
+  text-align:flex-start;
+
+}
 
 .dropdown-menu { position:relative !important }
 
@@ -157,6 +175,10 @@ li:hover {
 .row {
   display: flex;
   justify-content:space-between;
+}
+.column {
+  display:flex;
+  flex-direction:column;
 }
 
 .icon {

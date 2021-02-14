@@ -15,7 +15,7 @@ class Dashboard extends Component {
   state = {
     searchTerm: '',
     location:'',
-    type: ''
+    jobType: ''
   }
 
   handler= (val) => {
@@ -34,21 +34,51 @@ class Dashboard extends Component {
   // }
   handleChange = (e) => {
     this.setState({
-      searchTerm: e.target.value
+      [e.target.id]: e.target.value
+    })
+  //  console.log(this.state)
+
+  }
+
+  clearFilters = () =>{
+    this.setState({
+      location:"",
+      jobType:""
     })
   }
-  
 
   render() {
-    const { jobs, auth, currentLocation, jobType, minSalary } = this.props;
+    const { jobs, auth } = this.props;
 
     if(!auth.uid) return <Redirect to='/signin'></Redirect>
     return (
+      <div className='row'>
+        <div className='background column mrgt-145'>
+        <h4 className=" col s12 m11 left">Filters:</h4>
+          <select class="ui dropdown col s12 m11 left" id="location"  value={this.state.location} onChange={this.handleChange}>
+              <option value="">Select Location</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Noida">Noida</option>
+              <option value="Bangalore">Bangalore</option>
+              <option value="Rewa">Rewa</option>
+              <option value="Surat">Surat</option>
+          </select>
+          <select class="ui dropdown col s12 m11 left mrgtb-20" id="jobType"  value={this.state.jobType} onChange={this.handleChange}>
+              <option value="">Select JobType</option>
+              <option value="Plumber">Plumber</option>
+              <option value="Farmer">Farmer</option>
+              <option value="Worker">Worker</option>
+              <option value="Driver">Driver</option>
+              <option value="Cook">Cook</option>
+          </select>
+          <button className="btn pink lighten-1 z-depth-0 col s12 m11 left" onClick={this.clearFilters}>Clear</button>      
+
+        </div>
       <div className=" dashboard background container">
         <div className='mrgtb-20'>
           <div className='row'>
               <div className='search'>
-                <input type="text" value={this.state.searchTerm} placeholder="Looking for a job..." onChange={this.handleChange}></input>
+                <input type="text" id="searchTerm" value={this.state.searchTerm} placeholder="Looking for a job..." onChange={this.handleChange}></input>
               </div>
               <Dictaphone handler = {this.handler}></Dictaphone>
               <div>
@@ -62,7 +92,7 @@ class Dashboard extends Component {
           </div>
         <div className="row">
           <div className="col s12 m7">
-            <JobList jobs={jobs} searchTerm={this.state.searchTerm}/>
+            <JobList jobs={jobs} searchTerm={this.state.searchTerm} location={this.state.location} jobType={this.state.jobType}/>
           </div>
           <div className="col s12 m4 offset-m1">
             <Notifications jobs={jobs} 
@@ -70,6 +100,7 @@ class Dashboard extends Component {
           </div>
           
         </div>
+      </div>
       </div>
     )
   }

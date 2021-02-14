@@ -49,23 +49,36 @@ class JobList extends Component {
   }
 
   render() {
-    const { jobs, searchTerm } = this.props;
+    const { jobs, searchTerm, location, jobType } = this.props;
     console.log("joblist", this.props)
     return (
     <div className="project-list section">
       { jobs && jobs.filter(val => {
-        if(searchTerm == ""){
+        if(searchTerm == "" && location=="" && jobType==""){
           return val;
         }
-        else if(searchTerm.toLowerCase().includes(val.title.toLowerCase())){
-          return val;
+        else if(location!="" && jobType!=""){
+          if(val.location.toLowerCase() == location.toLowerCase() && val.title.toLowerCase() == jobType.toLowerCase()){
+            return val;
+          }
         }
-        else if(this.props.searchTerm.toLowerCase().includes("near me") && val.location.toLowerCase().includes(this.props.currentLocation.toLowerCase())){
-          return val;
+        else if(location!="" || jobType!=""){
+          if(val.location.toLowerCase() == location.toLowerCase() ||val.title.toLowerCase() == jobType.toLowerCase()){
+            return val;
+          }
         }
-        else if(this.state.address!="" && val.location.toLowerCase().includes(this.state.address.toLowerCase())){
-          return val;
+        if(searchTerm!=""){
+          if(searchTerm.toLowerCase().includes(val.title.toLowerCase()) && searchTerm.toLowerCase().includes("near me") && val.location.toLowerCase().includes(this.props.currentLocation.toLowerCase())){
+            return val;
+          }
+          else if(searchTerm.toLowerCase().includes(val.title.toLowerCase()) && !searchTerm.toLowerCase().includes("near me")){
+            return val;
+          }   
+          else if(!(searchTerm.toLowerCase().includes(val.title.toLowerCase())) && (searchTerm.toLowerCase().includes("near me")) && (val.location.toLowerCase().includes(this.props.currentLocation.toLowerCase()))){
+            return val;
+          }
         }
+          
       })
       .map(job => {
         return (
