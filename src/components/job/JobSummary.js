@@ -1,5 +1,7 @@
 import React from 'react'
 import moment from 'moment';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 
 const JobSummary = ({job}) => {
@@ -10,9 +12,14 @@ const JobSummary = ({job}) => {
           <span className="card-title ">{job.title}</span>
           <span className="card-title ">Rs. {job.salary} /day</span>
         </div>
-        
-        <p className='mrglr-20'>{job.location}</p>
-        <p className="grey-text">{moment(job.createdAt.toDate()).calendar()}</p>
+        <div className="row-wrap">
+            <div className='column'>
+            <p className='mrglr-20'>{job.location}</p>
+            <p className="grey-text">{moment(job.createdAt.toDate()).calendar()}</p></div>
+        <div>     
+        </div>         
+        </div>
+
       </div>
     </div>
   )

@@ -95,6 +95,9 @@ body {
   padding: 0px;
 }
 
+.pos{
+  position: relative;
+}
 .heading{
 	margin: 1em 0 0.5em 0;
 	color: #343434;
@@ -161,6 +164,15 @@ li:hover {
   align-self:flex-start;
   align-content:flex-start;
   text-align:flex-start;
+
+}
+
+.right{
+  align-items:flex-end;
+  justify-content:right;
+  align-self:flex-end;
+  align-content:flex-end;
+  text-align:flex-end;
 
 }
 
